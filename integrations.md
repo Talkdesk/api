@@ -29,11 +29,11 @@ The asynchronous nature of this API makes it possible to choose which features t
 
 All you have to do to integrate with Talkdesk is to develop an HTTP web service that exposes one or more of these endpoints through the following JSON configuration:
 
-(link here) Configuring an integration
+* (link here) Configuring an integration
 
 The Integration API defines a JSON data format for the requests being made to the bridge and expected responses for each of the endpoints:
 
-(link here) Create a contact retriever
-(link here) Create an interaction retriever
-(link here) Create an action executor
-(link here) Create an authorization validator
+* (link here) Create a contact retriever
+* (link here) Create an interaction retriever
+* (link here) Create an action executor
+* (link here) Create an authorization validator
