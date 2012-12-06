@@ -26,6 +26,7 @@ The asynchronous nature of this API makes it possible to choose which features t
 
 * __Action execution:__ It is also possible for bridges to configure actions to be executed in the external service. These can be invoked by Talkdesk when some events happen and can be used to make data flow to the external service. These can have different scopes depending on where they're available to the user inside Talkdesk, and are also configured through web-hook endpoints within the bridge.
 
+## Developing
 
 All you have to do to integrate with Talkdesk is to develop an HTTP web service that exposes one or more of these endpoints through the following JSON configuration:
 
