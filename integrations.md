@@ -10,9 +10,9 @@ Diagram goes here
 
 The bridge can, therefore, adapt any system that holds valuable business data that can be displayed by Talkdesk in the form of a contact or interaction. This can be anything the bridge can retrieve and send data to (such as an Internet service, an internal enterprise system or even a database) and will, from now on, be referenced as the _external service_.
 
-## Usage 
+## Usage
 
-One of the main usages for the Integration API is to enrich Talkdesk's contacts with related business information from other sources. 
+One of the main usages for the Integration API is to enrich Talkdesk's contacts with related business information from other sources.
 
 Depending on the type of external service being integrated, the bridge may need to retrieve information from it on behalf of the user. When this is the case, Talkdesk will let the integration configure which authentication fields it needs from the user in order to talk to the external service. Talkdesk will then store these and send them along in every future request it will make to the bridge.
 
@@ -30,7 +30,7 @@ The asynchronous nature of this API makes it possible to choose which features t
 
 All you have to do to integrate with Talkdesk is to develop an HTTP web service that exposes one or more of these endpoints through the following JSON configuration:
 
-* (link here) Configuring an integration
+* [Configuring an integration](integrations)
 
 The Integration API defines a JSON data format for the requests being made to the bridge and expected responses for each of the endpoints:
 
