@@ -1,3 +1,5 @@
+# Integrations API
+
 Talkdesk Integrations API makes it easy for third-parties to send data to and from Talkdesk. The system is designed to work asynchronously through HTTP web-hooks. Third parties create their own integrations by providing Talkdesk a specific configuration and implementing their own bridges.
 
 ## Concepts
