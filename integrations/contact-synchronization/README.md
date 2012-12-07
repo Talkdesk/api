@@ -1,4 +1,4 @@
-## Implementing a Contact Retriever
+# Implementing a Contact Retriever
 
 Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is run:
 
@@ -8,23 +8,42 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 * __Next Page:__ For the previous cases, when adapting third-party services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` "meta" field, until all contacts are retrieved, thus no `next_offset` being returned.
 
-### Request
+## Request
+
+### Reference
+
+* `auth`
+    * **Type:** Hash
+    * **Description:** A hash of authentication fields containing a user's credentials within the external service. The keys correspond to the fields asked by the integration when configuring it with Talkdesk.
+
+* `meta`
+    * **Type:** Hash
+    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fullfil this request.
+
+    * `meta.synchronization_checkpoint`
+        * **Type:** String, optional.
+        * **Description:** A generic starting point for the next synchronization with the 3rd party service. For initial synchronizations, this value will not be sent — which effectively means that the bridge should return all the contacts.
+
+    * `meta.offset`
+        * **Type:** String, optional.
+        * **Description:** A generic offset the bridge should apply when retrieving paginated contacts. Can either return page numbers, absolute numerical offsets or some other form of result iteration. This parameter is omitted in the first call and is only sent if the bridge instructs the synchronizer that there are more records available.
+
+### Example
 
 ```json
 {
     "auth": {
-        <auth_field>: <auth_field_value>,
-        <auth_field>: <auth_field_value>,
-        ...
+        "username": "john.doe@example.com",
+        "password": "605b32dd"
     },
     "meta": {
-        "synchronization_checkpoint": <synchronization_checkpoint>,
-        "offset": <offset>
+        "offset": "2"
+        "synchronization_checkpoint": "2012-11-20 23:01:00 UTC",
     }
 }
 ```
 
-### Steps
+## Steps
 
 1. Process the "auth" request fields to configure own external system client authorization parameters.
 
@@ -41,24 +60,86 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 6. Set the `next_offset` field to the value of the next page of results when there are more contacts to retrieve. This will instruct Talkdesk's synchronizer that it needs to make another request to the bridge to retrieve the remaining contacts. As with `synchronization_checkpoint`, the system is agnostic to the meaning of this field; bridges can either return page numbers, absolute numerical offsets or some other form of result iteration.
 
-### Response
+## Response
+
+### Reference
+
+* `next_offset`
+    **Type:** String, optional.
+    **Description:** Value for next page offset, if there are more records that match the query.
+
+* `synchronization_checkpoint`
+    **Type:** String, optional.
+    **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved everytime.
+
+* `contacts`
+    **Type:** Array
+    **Description:** An array of hashes containing contacts ascendingly by the field the bridge chose to mark as the `synchornization_checkpoint`
+
+    * `contacts.<element>.id`
+        **Type:** String, unique, mandatory
+        **Description:** Contact's id in the external service
+
+    * `contacts.<element>.name`
+        **Type:** String, mandatory
+        **Description:** Contact's full name
+
+    * `contacts.<element>.company`
+        **Type:** String, optional
+        **Description:**
+
+    * `contacts.<element>.title`
+        **Type:** String, optional
+        **Description:** Contact's title within his company
+
+    * `contacts.<element>.emails`
+        **Type:** String, optional
+        **Description:** An array of Strings containing contact's emails
+
+    * `contacts.<element>.phones`
+        **Type:** String, optional
+        **Description:** An array of Strings containing contact's phone numbers
+
+    * `contacts.<element>.photo_url`
+        **Type:** String, optional
+        **Description:** URL location of a contact's photo
+
+    * `contacts.<element>.address`
+        **Type:** String, optional
+        **Description:** Contact's full address
+
+    * `contacts.<element>.websites`
+        **Type:** Array, optional
+        **Description:** An array of Strings containing contact's websites
+
+    * `contacts.<element>.twitter`
+        **Type:** String, optional
+        **Description:** Contact's Twitter username
+
+### Example
 
 ```json
 {
-  "synchronization_checkpoint": <synchornization_checkpoint>,
-    "next_offset": <next_offset>,
+    "next_offset": "3",
+    "synchronization_checkpoint": "2012-12-01 11:21:00 UTC",
     "contacts": [
         {
-            "id":          <contact id in the external system>,
-            "name":        <contact's name>,
-            "title":       <contact's title>,
-            "emails":      <array of emails (strings)>,
-            "phones":      <array of phones (strings)>,
-            "photo_url":   <url with the photo of the contact>,
-            "company":     <company name>,
-            "address":     <contact's address>,
-            "websites":    <array of websites (strings)>,
-            "twitter":     <contact's twitter username>
+            "id":          "1",
+            "name":        "Jane Doe",
+            "title":       "CTO",
+            "emails":      ["jane.doe@example.com", "jane@example.com"],
+            "phones":      ["+15555555555"],
+            "photo_url":   "http://example.com/users/1/photo",
+            "company":     "Example Corp.",
+            "address":     "37, Famous St., New York, US",
+            "websites":    ["www.example.com"],
+            "twitter":     "jane_doe"
+        },
+        {
+            "id":          "2",
+            "name":        "Joe",
+            "title":       "Staff",
+            "emails":      ["joe@example.com"],
         }
     ]
 }
