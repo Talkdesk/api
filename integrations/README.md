@@ -34,7 +34,7 @@ All you have to do to integrate with Talkdesk is to develop an HTTP web service 
 
 The Integration API defines a JSON data format for the requests being made to the bridge and expected responses for each of the endpoints:
 
+* [Create an authorization validator](integrations/auth-validation)
 * [Create a contact retriever](integrations/contact-synchronization)
 * [Create an interaction retriever](integrations/interaction-update)
 * [Create an action executor](integrations/action-execution)
-* [Create an authorization validator](integrations/auth-validation)
