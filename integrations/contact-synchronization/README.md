@@ -4,9 +4,9 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 * __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a field within "meta", meaning that this is a full retrieval of every contact in the external service.
 
-* __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` "meta" field for that purpose.
+* __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` field within "meta" for that purpose.
 
-* __Next Page:__ For the previous cases, when adapting external services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` "meta" field, until all contacts are retrieved, thus no `next_offset` being returned.
+* __Next Page:__ For the previous cases, when adapting external services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` field within "meta", until all contacts are retrieved, thus no `next_offset` being returned.
 
 ## Request
 
@@ -47,18 +47,20 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 1. Use the "auth" fields to authenticate on behalf of the user within the external service. Talkdesk makes sure that all mandatory fields were filled as expected.
 
-2. Process `synchronization_checkpoint` and `offset` "meta" fields to prepare request to be made to the external service:
+2. Depending of the `synchronization_checkpoint` and `offset` parameters within "meta", the bridge might be in one of the following contact retrieval situations:
 
-    * If no `synchornization_checkpoint` is sent, do a full contact retrieval.
-    * If no `offset` is sent, retrieve the first page of contacts.
+    * If no `synchronization_checkpoint` nor the `offset` are sent, this correspons to an initial sync situation and the bridge should retrieve all the contacts.
+    * If an `offset` is sent but no `synchronization_checkpoint`, it means that there are pages remaining to be retrieved for the initial sync, so the bridge should get the next page of contacts.
+    * If an `synchronization_checkpoint` is sent but no `offset`, this corresponds to an incremental sync where only contacts updated after the `synchronization_checkpoint` should be retrieved.
+    * If both the `synchronization_checkpoint` and an `offset` are sent, this means there are pages remaining to be retrieved for the incremental sync, so the bridge should get the next page of contacts.
 
 3. Make a request to the external service and convert the result to Talkdesk's contact format, as displayed in the response below.
 
-4. Return contacts in ascending order, sorted by whatever field you deem as useful to use as a checkpoint.
+4. Set the `synchronization_checkpoint` to mark the last contact synchronized contact. Next time Talkdesk synchronizes contacts, it will send along this value, so that the bridge can only retrieve contacts that were updated after this checkpoint. Talkdesk is completely agnostic to the meaning of this field; bridges are responsible for selecting the best possible fit and interpreting it.
 
-5. Set the `synchronization_checkpoint` to the value of the last contact's field you chose as a checkpoint. Talkdesk's contact synchronization system is completely agnostic to the meaning of this field; bridges are responsible for selecting the best possible fit and interpreting it.
+5. Set the `next_offset` field to the value of the next page of results when there are more contacts to retrieve. This will instruct Talkdesk's synchronizer that it needs to make another request to the bridge to retrieve the remaining contacts. As with `synchronization_checkpoint`, the system is agnostic to the meaning of this field; bridges can either return page numbers, absolute numerical offsets or some other form of result iteration.
 
-6. Set the `next_offset` field to the value of the next page of results when there are more contacts to retrieve. This will instruct Talkdesk's synchronizer that it needs to make another request to the bridge to retrieve the remaining contacts. As with `synchronization_checkpoint`, the system is agnostic to the meaning of this field; bridges can either return page numbers, absolute numerical offsets or some other form of result iteration.
+6. The contacts should be sorted in ascending order of the field being used as a checkpoint, to ensure that Talkdesk has indeed synchronized all contacts from the external service until the moment caracterized by the checkpoint. Next requests can thus be incremental, using a _get all contacts updated after X_ semanthics.
 
 ## Response
 
