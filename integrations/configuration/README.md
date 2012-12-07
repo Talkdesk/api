@@ -122,7 +122,7 @@ Example:
       "token": { "source": "input", "display": "API Token", "mandatory": true, "type": "input", "store": true, "help": "Find under Settings > Channels" }
     }
   ],
-  "auth_validation_endpoint": 'https://td-zendesk.herokuapp.com/auth_validation',
+  "auth_validation_endpoint": "https://td-zendesk.herokuapp.com/auth_validation",
   "contact_synchronization_endpoint": "https://td-zendesk.herokuapp.com/contact_sync",
   "interaction_retrieval_endpoint": "https://td-zendesk.herokuapp.com/interaction_update",
   "interaction_types": ["ticket"],
