@@ -1,28 +1,46 @@
-## Implementing an Action Executor
+# Implementing an Action Executor
 
 Talkdesk will execute a configured action on the bridge when a trigger of an automation where that action takes part happens on the system. Actions can also be executed from a request of a user with manually input data. An action execution request POST will send the following parameters.
 
-### Request
+## Request
+
+### Reference
+
+* `auth`
+    * **Type:** Hash
+    * **Description:** A hash of authentication fields containing a user's credentials within the external service. The keys correspond to the fields asked by the integration when configuring it with Talkdesk.
+
+* `meta`
+    * **Type:** Hash
+    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fullfil this request.
+
+    * `meta.contact_external_id`
+        * **Type:** String, optional.
+        * **Description:** For contacts that were previously synchronized through the bridge, if this action is executed in the scope of a contact, Talkdesk sends its id in the external service for direct identification.
+
+* `data`
+    * **Type:** Hash
+    * **Description:** A hash of data fields and respective values the bridge needs to execute the action in the external service. The keys correspond to the fields asked by the integration through the action configuration.
+
+### Example
 
 ```json
 {
     "auth": {
-        <auth_field>: <auth_field_value>,
-        <auth_field>: <auth_field_value>,
-        ...
+        "username": "john.doe@example.com",
+        "password": "605b32dd"
     },
     "meta": {
-        "contact_external_id": <contact_external_id>,
+        "contact_external_id": "1",
     }
     "data": {
-        <action_data_field>: <action_data_value>,
-        <action_data_field>: <action_data_value>,
-        <action_data_field>: <action_data_value>,
+        "subject": "Call missed in Talkdesk",
+        "description": "A call from Jane Doe was missed."
     }
 }
 ```
 
-### Steps
+## Steps
 
 1. Process the "auth" request fields to configure own external system client authorization parameters.
 
