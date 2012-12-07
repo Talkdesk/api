@@ -1,10 +1,10 @@
-## Configuring a Talkdesk Integration
+# Configuring a Talkdesk Integration
 
 Talkdesk has to know a few things about your new integration: what it is called, what kind of authentication mechanism it needs, where it lives and which feature set it provides.
 
 In the following sections we'll go through these configuration options.
 
-### Authentication Configuration
+## Authentication Configuration
 
 Depending on the third-party service you will be integrating with Talkdesk, some form of user authentication might be necessay. Talkdesk lets the integration configure which authentication fields it needs from the user. You can then use this information to identify the user and make authorized requests on his behalf to the third-party system.
 
@@ -21,7 +21,7 @@ Three authentication types can be used for an integration:
 > 3. If the third-party service issues a refresh token, Talkdesk will save it to refresh the access token when it expires.
 > 4. If a bridge makes a request to a third-party service and it fails due to unauthorized access, returning back a 401 to Talkdesk will make it refresh the access token and repeat the request on the bridge passing the new token.
 
-### Integration Configuration
+## Integration Configuration
 
 An integration configuration has to provide a JSON configuration based on the following reference:
 
@@ -129,7 +129,7 @@ Example:
 }
 ```
 
-### Configuring Actions
+## Configuring Actions
 
 If an integration provides actions for Talkdesk to call, each of those has to provide a JSON configuration based on the following reference:
 
