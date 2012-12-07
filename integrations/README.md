@@ -28,15 +28,18 @@ The asynchronous nature of this API makes it possible to choose which features t
 
 * __Action execution:__ It is also possible for bridges to configure actions to be executed in the external service. These can be invoked by Talkdesk when some events happen and can be used to make data flow to the external service. These can have different scopes depending on where they're available to the user inside Talkdesk, and are also configured through web-hook endpoints within the bridge.
 
-## Developing
+## Getting started
 
-All you have to do to integrate with Talkdesk is to develop an HTTP web service that exposes one or more of these endpoints through the following JSON configuration:
+Want to get started integrating with Talkdesk? Here's what you need to do:
 
-* [Configure an integration](integrations/configuration)
+1. Read the docs on [how to configure an integration](integrations/configuration).
+2. Send us a JSON with the configuration of your integration.
+3. Build an HTTP web application, exposing one of more of the following endpoints:
 
-The Integration API defines a JSON data format for the requests being made to the bridge and expected responses for each of the endpoints:
+> The HTTP endpoints must be served through HTTPS.
+> The Integration API defines a JSON data format for the requests/responses
 
-* [Create an authorization validator](integrations/auth-validation)
-* [Create a contact retriever](integrations/contact-synchronization)
-* [Create an interaction retriever](integrations/interaction-update)
-* [Create an action executor](integrations/action-execution)
+  * [Create an authorization validator](integrations/auth-validation)
+  * [Create a contact retriever](integrations/contact-synchronization)
+  * [Create an interaction retriever](integrations/interaction-update)
+  * [Create an action executor](integrations/action-execution)
