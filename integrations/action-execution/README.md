@@ -32,7 +32,7 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
     },
     "meta": {
         "contact_external_id": "1",
-    }
+    },
     "data": {
         "subject": "Call missed in Talkdesk",
         "description": "A call from Jane Doe was missed."
