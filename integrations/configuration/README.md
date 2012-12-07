@@ -147,7 +147,7 @@ If an integration provides actions for Talkdesk to call, each of those has to pr
 
 * `description`
     * **Type:** String, mandatory
-    * **Description:** User-friendly action description that Talkdesk will show to the user.
+    * **Description:** User-friendly action description that Talkdesk will show to the user. It should be lowercased so that it can be used in the context of an automation (e.g: "create a new ticket in Zendesk" as description will be presented by Talkdesk as "Then create a new ticket in Zendesk").
 
 * `endpoint`
     * **Type:** String, mandatory
@@ -175,7 +175,7 @@ Example:
   "provider": "zendesk",
   "name": "create_ticket",
   "display": "create a ticket",
-  "description": "Create a new ticket in Zendesk",
+  "description": "create a new ticket in Zendesk",
   "endpoint": "",
   "inputs": [
     {
