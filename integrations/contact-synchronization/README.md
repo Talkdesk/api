@@ -37,8 +37,8 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
         "password": "605b32dd"
     },
     "meta": {
-        "offset": "2"
-        "synchronization_checkpoint": "2012-11-20 23:01:00 UTC",
+        "offset": "2",
+        "synchronization_checkpoint": "2012-11-20 23:01:00 UTC"
     }
 }
 ```
@@ -139,7 +139,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
             "id":          "2",
             "name":        "Joe",
             "title":       "Staff",
-            "emails":      ["joe@example.com"],
+            "emails":      ["joe@example.com"]
         }
     ]
 }
