@@ -49,7 +49,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 2. Depending of the `synchronization_checkpoint` and `offset` parameters within "meta", the bridge might be in one of the following contact retrieval situations:
 
-* If no `synchronization_checkpoint` nor the `offset` are sent, this correspons to an initial sync situation and the bridge should retrieve all the contacts.
+* If no `synchronization_checkpoint` nor the `offset` are sent, this corresponds to an initial sync situation and the bridge should retrieve all the contacts.
 * If an `offset` is sent but no `synchronization_checkpoint`, it means that there are pages remaining to be retrieved for the initial sync, so the bridge should get the next page of contacts.
 * If an `synchronization_checkpoint` is sent but no `offset`, this corresponds to an incremental sync where only contacts updated after the `synchronization_checkpoint` should be retrieved.
 * If both the `synchronization_checkpoint` and an `offset` are sent, this means there are pages remaining to be retrieved for the incremental sync, so the bridge should get the next page of contacts.
