@@ -86,7 +86,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
     * `contacts.<element>.company`
         **Type:** String, optional
-        **Description:**
+        **Description:** Contact's company
 
     * `contacts.<element>.title`
         **Type:** String, optional
