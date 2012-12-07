@@ -6,7 +6,7 @@ The Talkdesk API is a way for you to connect and "sync" other applications (cust
 
 ## Help
 
-If you have questions that are related to the API chat with someone from tech support, by acessing [our chat room](www.hipchat.com/gyjJEVCEE).
+If you have questions that are related to the API chat with someone from tech support by acessing [our chat room](http://www.hipchat.com/gyjJEVCEE).
 
 ## Help Us Make it Better
 
