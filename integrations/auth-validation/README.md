@@ -1,6 +1,6 @@
 # Implementing an Authorization Validator
 
-When a user activates an integration for his Talkdesk account, a POST will be made to the configured endpoint with the user's
+When a user activates an integration for their Talkdesk account, a POST will be made to the configured endpoint with the user's
 information for the configured authorization fields. The bridge should validate the credentials with the external service in order to the integration to be properly configured for the account.
 
 ## Request
