@@ -2,7 +2,7 @@
 
 Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is run:
 
-* __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a "meta" field, meaning that this is a full retrieval of every contact in the external system.
+* __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a "meta" field, meaning that this is a full retrieval of every contact in the external service.
 
 * __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` "meta" field for that purpose.
 
@@ -45,14 +45,14 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 ## Steps
 
-1. Process the "auth" request fields to configure own external system client authorization parameters.
+1. Process the "auth" request fields to configure own external service client authorization parameters.
 
-2. Process `synchronization_checkpoint` and `offset` "meta" fields to prepare request to be made to the external system:
+2. Process `synchronization_checkpoint` and `offset` "meta" fields to prepare request to be made to the external service:
 
     * If no `synchornization_checkpoint` is sent, do a full contact retrieval.
     * If no `offset` is sent, retrieve the first page of contacts.
 
-3. Make a request to the external system and convert the result to Talkdesk's contact format, as displayed in the response below.
+3. Make a request to the external service and convert the result to Talkdesk's contact format, as displayed in the response below.
 
 4. Return contacts in ascending order, sorted by whatever field you deem as useful to use as a checkpoint.
 
