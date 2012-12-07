@@ -111,13 +111,12 @@ Talkdesk's interaction updater will send an HTTP POST request to the bridge in o
     {
         "id":            "23",
         "subject":       "A very important matter",
-        "description':   "Your order is ready to be shipped",
+        "description":   "Your order is ready to be shipped",
         "date":          "2012-11-21 17:53:51 UTC",
         "url":           "http://example.com/interactions/23",
         "type":          "case",
         "priority":      "high",
         "status":        "pending"
-    },
-    ...
+    }
 ]
 ```
