@@ -183,7 +183,11 @@ Example:
       "name": "Ticket subject",
       "mandatory": true
     },
-    ...
-  ],
+    {
+      "key": "description",
+      "name": "Ticket description",
+      "mandatory": true
+    }
+  ]
 }
 ```
