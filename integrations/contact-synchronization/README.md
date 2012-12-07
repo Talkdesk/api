@@ -2,7 +2,7 @@
 
 Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is run:
 
-* __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a "meta" field, meaning that this is a full retrieval of every contact in the external service.
+* __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a field within "meta", meaning that this is a full retrieval of every contact in the external service.
 
 * __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` "meta" field for that purpose.
 
