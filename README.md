@@ -1,3 +1,3 @@
 # Talkdesk API
 
-[Integrations API](integrations)
+[Integrations API](/integrations)
