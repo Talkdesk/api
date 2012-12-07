@@ -29,3 +29,11 @@ information for the configured authorization fields. The bridge should validate 
 2. Make a request to the external service to validate the given credentials.
 
 3. Return 204 if the credentials are valid, 401 otherwise.
+
+### Links
+
+* Read about [integration configuration](configuration.md)
+* Read about [contact retrieval](contact-synchronization.md)
+* Read about [interaction retrieval](interaction-updatemd.md)
+* Read about [action execution](action-execution.md)
+* Go back to [Integrations API](../integrations-api.md)

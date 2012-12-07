@@ -191,3 +191,11 @@ Example:
   ]
 }
 ```
+
+### Links
+
+* Read about [authorization validation](auth-validation.md)
+* Read about [contact retrieval](contact-synchronization.md)
+* Read about [interaction retrieval](interaction-updatemd.md)
+* Read about [action execution](action-execution.md)
+* Go back to [Integrations API](../integrations-api.md)
