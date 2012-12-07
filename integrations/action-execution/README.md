@@ -46,6 +46,6 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
 
 2. Use contextual information passed as a meta field (such as the contact id in the external service) to correctly associate actions to the entities in the external service.
 
-2. Process every data parameters and fulfil a request to execute the action on the external service.
+3. Build a request based on the data parameters and send it to the external service.
 
-3. Return a 201 HTTP status code if it succeeds, 400 otherwise.
+4. Return a 201 HTTP status code if it succeeds, 400 otherwise.
