@@ -37,7 +37,7 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
 3. Build an HTTP web application, exposing one of more of the following endpoints:
 
     > The HTTP endpoints must be served through HTTPS.  
-    > The Integration API defines a JSON data format for the requests/responses
+    > The Integration API data format for requests/responses is JSON.
 
   * [Create an authorization validator](integrations/auth-validation)
   * [Create a contact retriever](integrations/contact-synchronization)
