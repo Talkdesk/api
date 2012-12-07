@@ -1,21 +1,28 @@
-## Implementing an Authorization Validator
+# Implementing an Authorization Validator
 
 When a user activates an integration for his Talkdesk account, a POST will be made to the configured endpoint with the user's
 information for the configured authorization fields. The bridge should validate the credentials with the external system in order to the integration to be properly configured for the account.
 
-### Request
+## Request
+
+### Reference
+
+* `auth`
+    * **Type:** Hash
+    * **Description:** A hash of authentication fields containing a user's credentials within the external service. The keys correspond to the fields asked by the integration when configuring it with Talkdesk.
+
+### Example
 
 ```json
 {
     "auth": {
-        <auth_field>: <auth_field_value>,
-        <auth_field>: <auth_field_value>,
-        ...
+        "username": "john.doe@example.com",
+        "password": "605b32dd"
     }
 }
 ```
 
-### Steps
+## Steps
 
 1. Process the "auth" to check if they correspond to what was configured in Talkdesk
 
