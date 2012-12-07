@@ -33,6 +33,18 @@ An integration configuration has to provide a JSON configuration based on the fo
     * **Type:** String, mandatory.
     * **Description:** A user-friendly display name for this integration, will be used when displaying the interface.
 
+* `description`
+    * **Type:** String, mandatory
+    * **Description:** A user-friendly description of the service the integration is bridging to.
+
+* `logo_url`
+    * **Type:** String, mandatory
+    * **Description:** The URL location of the integration service logo to be displayed when configuring the integration.
+
+* `icon_url`
+    * **Type:** String, mandatory
+    * **Description:** The URL location of the integration service icon to be displayed for retrieved interactions within a contact.
+
 * `authentication_type`
     * **Type:** String, `none`, `custom` or `oauth2`.
     * **Description:** The type of authentication to use. If `none` or `oauth2` are set, `authentication_fields` is unnecessary. For `custom`, authentication fields must be set.
@@ -73,6 +85,10 @@ An integration configuration has to provide a JSON configuration based on the fo
         * **Type:** String, optional.
         * **Description:** Template to gather user input, allows a friendlier display on the interface (e.g. `http://talkdesk.com/{{username}}`)
 
+* `auth_validation_endpoint`
+    * **Type:** String, optional.
+    * **Description:** The URL of the integration bridge responsible of validating if the given credentials authorize the user.
+
 * `contact_synchronization_url`
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible for contact synchronization. If nil, contact synchronization features will not be available for the integration.
@@ -81,25 +97,9 @@ An integration configuration has to provide a JSON configuration based on the fo
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible for interaction retrieval. If nil, interaction retrieval features will not be available for the integration.
 
-* `auth_validation_endpoint`
-    * **Type:** String, optional.
-    * **Description:** The URL of the integration bridge responsible of validating if the given credentials authorize the user.
-
 * `interaction_types`
     * **Type:** Array, optional
     * **Description:** An array of Strings that identify which types of interactions this integration can retrieve. Each account will configure a subset of these types it is interested in.
-
-* `description`
-    * **Type:** String, mandatory
-    * **Description:** A user-friendly description of the service the integration is bridging to.
-
-* `logo_url`
-    * **Type:** String, mandatory
-    * **Description:** The URL location of the integration service logo to be displayed when configuring the integration.
-
-* `icon_url`
-    * **Type:** String, mandatory
-    * **Description:** The URL location of the integration service icon to be displayed for retrieved interactions within a contact.
 
 
 Example:
@@ -107,6 +107,9 @@ Example:
 {
   "name": "zendesk",
   "display_name": "Zendesk",
+  "description": "Centralize all your customer conversations so nothing gets ignored and everything is searchable   from one place. Easily organize, prioritize and engage with others on support requests.",
+  "logo_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk.png",
+  "icon_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk_icon.png"
   "authentication_type": "custom",
   "authentication_configuration": [
     {
@@ -119,13 +122,10 @@ Example:
       "token": { "source": "input", "display": "API Token", "mandatory": true, "type": "input", "store": true, "help": "Find under Settings > Channels" }
     }
   ],
+  "auth_validation_endpoint": 'https://td-zendesk.herokuapp.com/auth_validation',
   "contact_synchronization_endpoint": "https://td-zendesk.herokuapp.com/contact_sync",
   "interaction_retrieval_endpoint": "https://td-zendesk.herokuapp.com/interaction_update",
-  "auth_validation_endpoint": 'https://td-zendesk.herokuapp.com/auth_validation',
   "interaction_types": ["ticket"],
-  "description": "Centralize all your customer conversations so nothing gets ignored and everything is searchable   from one place. Easily organize, prioritize and engage with others on support requests.",
-  "logo_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk.png",
-  "icon_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk_icon.png"
 }
 ```
 
