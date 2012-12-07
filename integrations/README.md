@@ -43,3 +43,7 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
   * [Create a contact retriever](integrations/contact-synchronization)
   * [Create an interaction retriever](integrations/interaction-update)
   * [Create an action executor](integrations/action-execution)
+
+### Help
+
+Remember to use [our chat room](http://www.hipchat.com/gyjJEVCEE) if you have any questions.
