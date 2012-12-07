@@ -65,56 +65,56 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 ### Reference
 
 * `next_offset`
-    **Type:** String, optional.
-    **Description:** Value for next page offset, if there are more records that match the query.
+    * **Type:** String, optional.
+    * **Description:** Value for next page offset, if there are more records that match the query.
 
 * `synchronization_checkpoint`
-    **Type:** String, optional.
-    **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved everytime.
+    * **Type:** String, optional.
+    * **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved everytime.
 
 * `contacts`
-    **Type:** Array
-    **Description:** An array of hashes containing contacts ascendingly by the field the bridge chose to mark as the `synchornization_checkpoint`
+    * **Type:** Array
+    * **Description:** An array of hashes containing contacts ascendingly by the field the bridge chose to mark as the `synchornization_checkpoint`
 
     * `contacts.<element>.id`
-        **Type:** String, unique, mandatory
-        **Description:** Contact's id in the external service
+        * **Type:** String, unique, mandatory
+        * **Description:** Contact's id in the external service
 
     * `contacts.<element>.name`
-        **Type:** String, mandatory
-        **Description:** Contact's full name
+        * **Type:** String, mandatory
+        * **Description:** Contact's full name
 
     * `contacts.<element>.company`
-        **Type:** String, optional
-        **Description:** Contact's company
+        * **Type:** String, optional
+        * **Description:** Contact's company
 
     * `contacts.<element>.title`
-        **Type:** String, optional
-        **Description:** Contact's title within his company
+        * **Type:** String, optional
+        * **Description:** Contact's title within his company
 
     * `contacts.<element>.emails`
-        **Type:** String, optional
-        **Description:** An array of Strings containing contact's emails
+        * **Type:** String, optional
+        * **Description:** An array of Strings containing contact's emails
 
     * `contacts.<element>.phones`
-        **Type:** String, optional
-        **Description:** An array of Strings containing contact's phone numbers
+        * **Type:** String, optional
+        * **Description:** An array of Strings containing contact's phone numbers
 
     * `contacts.<element>.photo_url`
-        **Type:** String, optional
-        **Description:** URL location of a contact's photo
+        * **Type:** String, optional
+        * **Description:** URL location of a contact's photo
 
     * `contacts.<element>.address`
-        **Type:** String, optional
-        **Description:** Contact's full address
+        * **Type:** String, optional
+        * **Description:** Contact's full address
 
     * `contacts.<element>.websites`
-        **Type:** Array, optional
-        **Description:** An array of Strings containing contact's websites
+        * **Type:** Array, optional
+        * **Description:** An array of Strings containing contact's websites
 
     * `contacts.<element>.twitter`
-        **Type:** String, optional
-        **Description:** Contact's Twitter username
+        * **Type:** String, optional
+        * **Description:** Contact's Twitter username
 
 ### Example
 
