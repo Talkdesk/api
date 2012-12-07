@@ -143,11 +143,11 @@ If an integration provides actions for Talkdesk to call, each of those has to pr
 
 * `display`
     * **Type:** String, mandatory
-    * **Description:** User-friendly name used to identify the action
+    * **Description:** User-friendly name for Talkdesk to use to identify the action to the user. It should be lowercased so that it can be used in the context of an automation (e.g: "create a ticket" as display will be presented by Talkdesk as "Then create a ticket"). It should also be short so that it can be used in a combo-box.
 
 * `description`
     * **Type:** String, mandatory
-    * **Description:** User-friendly description that Talkdesk will show to the user
+    * **Description:** User-friendly action description that Talkdesk will show to the user.
 
 * `endpoint`
     * **Type:** String, mandatory
