@@ -125,7 +125,7 @@ Example:
   "auth_validation_endpoint": "https://td-zendesk.herokuapp.com/auth_validation",
   "contact_synchronization_endpoint": "https://td-zendesk.herokuapp.com/contact_sync",
   "interaction_retrieval_endpoint": "https://td-zendesk.herokuapp.com/interaction_update",
-  "interaction_types": ["ticket"],
+  "interaction_types": ["ticket"]
 }
 ```
 
@@ -176,7 +176,7 @@ Example:
   "name": "create_ticket",
   "display": "create a ticket",
   "description": "Create a new ticket in Zendesk",
-  "endpoint": ""
+  "endpoint": "",
   "inputs": [
     {
       "key": "subject",
