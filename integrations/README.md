@@ -34,7 +34,7 @@ The asynchronous nature of this API makes it possible to choose which features t
 Want to get started integrating with Talkdesk? Here's what you need to do:
 
 1. Read the docs on [how to configure an integration](integrations/configuration).
-2. Send us a JSON with the configuration of your integration.
+2. Send us a JSON with the configuration of your integration. (For early bird access, email us to integrations@talkdesk.com)
 3. Build an HTTP web application, exposing one or more of the following endpoints:
 
     > The HTTP endpoints must be served through HTTPS.  
