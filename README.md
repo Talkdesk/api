@@ -2,7 +2,7 @@ The Talkdesk API is a way for you to connect and "sync" other applications (cust
 
 ## Talkdesk API
 
-[Integrations API](integrations/README.md)
+[Integrations API](integrations/)
 
 ## Help
 
