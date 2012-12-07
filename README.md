@@ -12,3 +12,4 @@ If you have questions that are related to the API chat with someone from tech su
 
 Please tell us how we can make Talkdesk API better. If you have a specific feature request or if you found a bug, please email us at [support@talkdesk.com](mailto: support@talkdesk.com).
 
+Feel free to fork these docs and send a pull request with improvements!
