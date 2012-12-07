@@ -1,12 +1,12 @@
 # Implementing a Contact Retriever
 
-Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is run:
+Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is running:
 
-* __Initial Sync:__ The first time the contact synchronization runs for a given account, no `synchronization_checkpoint` is sent as a field within "meta", meaning that this is a full retrieval of every contact in the external service.
+* __Initial Sync:__ The first time the contact synchronization runs for a given account the bridge should retrieve every contact in the external system. When responding to the initial sync, the bridge can set a `synchronization_checkpoint` that Talkdesk will use from that moment on to only sync contacts incrementally.
 
-* __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` field within "meta" for that purpose.
+* __Incremental Sync:__ When a contact sync has been made and the bridge has set a `synchronization_checkpoint` in the response, Talkdesk will use that in the request that the bridge can use to only retrieve contacts updated after that checkpoint.
 
-* __Next Page:__ For the previous cases, when adapting external services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` field within "meta", until all contacts are retrieved, thus no `next_offset` being returned.
+* __Next Page:__ In both cases, when the external service only lets the bridge retrieve contacts in pages, the bridge should respond with the partially retrieved settings and set a `next_offset` in the response with the next page to retrieve. When this is set, Talkdesk will immediately make a new request with this value as the `offset` field within "meta" to retrieve the next page of contacts. This will repeat until the bridge returns no `next_offset` in the response, thus meaning that all contacts have been retrieved.
 
 ## Request
 
