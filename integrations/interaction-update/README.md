@@ -60,7 +60,7 @@ Talkdesk's interaction updater will send an HTTP POST request to the bridge in o
 
 ## Steps
 
-1. Process the "auth" request fields to configure your own external service client authorization parameters.
+1. Use the "auth" fields to authenticate on behalf of the user within the external service. Talkdesk makes sure that all mandatory fields were filled as expected.
 
 2. Select the type of interactions to retrieve by looking at the `interaction_types` "meta" field.
 

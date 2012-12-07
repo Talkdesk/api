@@ -45,7 +45,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 ## Steps
 
-1. Process the "auth" request fields to configure own external service client authorization parameters.
+1. Use the "auth" fields to authenticate on behalf of the user within the external service. Talkdesk makes sure that all mandatory fields were filled as expected.
 
 2. Process `synchronization_checkpoint` and `offset` "meta" fields to prepare request to be made to the external service:
 

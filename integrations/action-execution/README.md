@@ -42,7 +42,7 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
 
 ## Steps
 
-1. Process the "auth" request fields to configure own external service client authorization parameters.
+1. Use the "auth" fields to authenticate on behalf of the user within the external service. Talkdesk makes sure that all mandatory fields were filled as expected.
 
 2. Use contextual information passed as a meta field (such as the contact id in the external service) to correctly associate actions to the entities in the external service.
 

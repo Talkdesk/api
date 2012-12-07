@@ -24,8 +24,8 @@ information for the configured authorization fields. The bridge should validate 
 
 ## Steps
 
-1. Process the "auth" to check if they correspond to what was configured in Talkdesk
+1. The "auth" fields contain user submitted values (and/or resulting from the OAuth 2.0 token exchange) for the fields the integration configured within Talkdesk. Use that information as the user authentication within the external service.
 
-2. Make a request to the external service to validate the given credentials.
+2. Build a request to the external service to validate the given credentials. This can be a dummy request just to make sure the credentials are valid, or a more elaborate validation thorugh an authorization endpoint the external service may provide.
 
-3. Return 204 if the credentials are valid, 401 otherwise.
+3. Return 204 if the request succeeds, 401 otherwise.
