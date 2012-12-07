@@ -6,7 +6,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 * __Incremental Sync:__ When a contact sync has been made, the bridge can set a `synchronization_checkpoint` in the response so that the next time the bridge is asked to sync contacts it will only retrieve the ones that changed after the checkpoint. Talkdesk will use the `synchornization_checkpoint` "meta" field for that purpose.
 
-* __Next Page:__ For the previous cases, when adapting third-party services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` "meta" field, until all contacts are retrieved, thus no `next_offset` being returned.
+* __Next Page:__ For the previous cases, when adapting external services that return contacts in pages, the bridge can signal Talkdesk that the returned contacts are partial by setting `next_offset` in the response. If this is the case, Talkdesk will make a new request for every next page by setting the `offset` "meta" field, until all contacts are retrieved, thus no `next_offset` being returned.
 
 ## Request
 

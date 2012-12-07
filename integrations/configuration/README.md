@@ -6,20 +6,20 @@ In the following sections we'll go through these configuration options.
 
 ## Authentication Configuration
 
-Depending on the third-party service you will be integrating with Talkdesk, some form of user authentication might be necessay. Talkdesk lets the integration configure which authentication fields it needs from the user. You can then use this information to identify the user and make authorized requests on his behalf to the third-party system.
+Depending on the external service you will be integrating with Talkdesk, some form of user authentication might be necessary. Talkdesk lets the integration configure which authentication fields it needs from the user. You can then use this information to identify the user and make authorized requests on his behalf to the external service.
 
 Three authentication types can be used for an integration:
 
 * `none`: Use this if no authentication information is needed
 * `custom`: This type of authentication will ask the user for the authentication fields the bridge requires when he first activates the integration for his account. These will be passed transparently to the bridge as authentication parameters when making requests for that user.
-* `oauth2`: If the third-party service you are integrating supports OAuth 2.0 user authentication, Talkdesk offers a simple way to ask the user for access to his account within the third-party service.
+* `oauth2`: If the external service you are integrating supports OAuth 2.0 user authentication, Talkdesk offers a simple way to ask the user for access to his account within the external service.
 
 > Notes on OAuth 2.0 authentication type
 
-> 1. When using OAuth 2.0 authentication, Talkdesk will request the authorization credentials by redirecting the user to the third-party service and trading a verification code for an access token.
-> 2. This token will be passed to the bridge as an authentication parameter letting it make requests to the third-party service on behalf of the user.
-> 3. If the third-party service issues a refresh token, Talkdesk will save it to refresh the access token when it expires.
-> 4. If a bridge makes a request to a third-party service and it fails due to unauthorized access, returning back a 401 to Talkdesk will make it refresh the access token and repeat the request on the bridge passing the new token.
+> 1. When using OAuth 2.0 authentication, Talkdesk will request the authorization credentials by redirecting the user to the external service and trading a verification code for an access token.
+> 2. This token will be passed to the bridge as an authentication parameter letting it make requests to the external service on behalf of the user.
+> 3. If the external service issues a refresh token, Talkdesk will save it to refresh the access token when it expires.
+> 4. If a bridge makes a request to a external service and it fails due to unauthorized access, returning back a 401 to Talkdesk will make it refresh the access token and repeat the request on the bridge passing the new token.
 
 ## Integration Configuration
 
