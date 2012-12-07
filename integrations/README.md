@@ -7,7 +7,8 @@ Talkdesk Integrations API makes it easy for third-parties to send data to and fr
 A _bridge_ is an intermediary HTTP application that maps structured data living in a third-party system to a streamlined format that Talkdesk can process for consumption.
 
 ```
-Diagram goes here
+    [EI] ===== get contacts ====>     [Contact Bridge]     == search for users ==> [External Service]
+         <-- external contacts -- <conversion to contacts> <------- users --------
 ```
 
 The bridge can, therefore, adapt any system that holds valuable business data that can be displayed by Talkdesk in the form of a contact or interaction. This can be anything the bridge can retrieve and send data to (such as an Internet service, an internal enterprise system or even a database) and will, from now on, be referenced as the _external service_.
