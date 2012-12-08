@@ -18,7 +18,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 * `meta`
     * **Type:** Hash
-    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fullfil this request.
+    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fulfil this request.
 
     * `meta.synchronization_checkpoint`
         * **Type:** String, optional.
@@ -60,7 +60,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 5. Set the `next_offset` field to the value of the next page of results when there are more contacts to retrieve. This will instruct Talkdesk's synchronizer that it needs to make another request to the bridge to retrieve the remaining contacts. As with `synchronization_checkpoint`, the system is agnostic to the meaning of this field; bridges can either return page numbers, absolute numerical offsets or some other form of result iteration.
 
-6. The contacts should be sorted in ascending order of the field being used as a checkpoint, to ensure that Talkdesk has indeed synchronized all contacts from the external service until the moment caracterized by the checkpoint. Next requests can thus be incremental, using a _get all contacts updated after X_ semanthics.
+6. The contacts should be sorted in ascending order of the field being used as a checkpoint, to ensure that Talkdesk has indeed synchronized all contacts from the external service until the moment characterized by the checkpoint. Next requests can thus be incremental, using a _get all contacts updated after X_ semantics.
 
 ## Response
 

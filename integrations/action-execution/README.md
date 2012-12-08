@@ -12,7 +12,7 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
 
 * `meta`
     * **Type:** Hash
-    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fullfil this request.
+    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fulfil this request.
 
     * `meta.contact_external_id`
         * **Type:** String, optional.

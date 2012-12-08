@@ -12,7 +12,7 @@ Talkdesk's interaction updater will send an HTTP POST request to the bridge in o
 
 * `meta`
     * **Type:** Hash
-    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fullfil this request.
+    * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fulfil this request.
 
     * `meta.interaction_types`
         * **Type:** Array
