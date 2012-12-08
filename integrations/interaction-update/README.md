@@ -66,7 +66,7 @@ Talkdesk's interaction updater will send an HTTP POST request to the bridge in o
 
 3. Make one or more requests to the external service to retrieve interactions from contacts identified by one or more of the "data" fields. These fields provide contact-related information that the bridge can use to identify the contact within the external service.
 
-4. Adapt these interactions to Talkdesk's format, by returning a JSON array of the following structure:
+4. Adapt these interactions to Talkdesk's format, by returning a JSON array with the following structure:
 
 ## Response
 
