@@ -149,6 +149,11 @@ If an integration provides actions for Talkdesk to call, each of those has to pr
     * **Type:** String, mandatory
     * **Description:** User-friendly action description that Talkdesk will show to the user. It should be lowercased so that it can be used in the context of an automation (e.g: "create a new ticket in Zendesk" as description will be presented by Talkdesk as "Then create a new ticket in Zendesk").
 
+* `scoping`
+    * **Type:** Array, mandatory. Possible values: `automation`, `contact`, `interaction`.
+    * **Description:** An array of Strings that identify the scopes where this action should be available. Use `automation` for actions that can be executed automatically with trigger-provided values. Use `contact` and `interaction` for actions available to be executed with user-submitted input in the context
+    of a contact and/or interaction, respectively.
+
 * `endpoint`
     * **Type:** String, mandatory
     * **Description:** The URL of the integration bridge responsible to execute this action.
@@ -176,6 +181,7 @@ Example:
   "name": "create_ticket",
   "display": "create a ticket",
   "description": "create a new ticket in Zendesk",
+  "scoping": ['automation', 'contact'],
   "endpoint": "",
   "inputs": [
     {
