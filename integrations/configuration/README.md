@@ -150,9 +150,8 @@ If an integration provides actions for Talkdesk to call, each of those has to pr
     * **Description:** User-friendly action description that Talkdesk will show to the user. It should be lowercased so that it can be used in the context of an automation (e.g: "create a new ticket in Zendesk" as description will be presented by Talkdesk as "Then create a new ticket in Zendesk").
 
 * `scoping`
-    * **Type:** Array, mandatory. Possible values: `automation`, `contact`, `interaction`.
-    * **Description:** An array of Strings that identify the scopes where this action should be available. Use `automation` for actions that can be executed automatically with trigger-provided values. Use `contact` and `interaction` for actions available to be executed with user-submitted input in the context
-    of a contact and/or interaction, respectively.
+    * **Type:** Array, mandatory. Possible values: `automation`, `contact` or one of the integration's interaction types (e.g., `ticket`).
+    * **Description:** An array of Strings that identify the scopes where this action should be available. Use `automation` for actions that can be executed automatically with trigger-provided values. Use `contact` for actions tha can be executed with user-submitted input in the context of a contact (can be pre-filled with contacts fields as explained below). It is also possible to configure actions for specific interaction types retrieved by the integration: For instance, if the integration retrieves interactions of type `ticket`, the action "update ticket" should specify its scoping as `ticket` and thus be available only for that interaction type.
 
 * `endpoint`
     * **Type:** String, mandatory
@@ -170,11 +169,23 @@ If an integration provides actions for Talkdesk to call, each of those has to pr
         * **Type:** String
         * **Description:** The name of the field to send.
 
+    * `inputs.<element>.type`
+        * **Type:** String. Possible values: `text`, `textarea`, `email`, `tel`, `number`, `datetime`, `time`, `select`, `key/value`
+        * **Description:** The type of input for the Talkdesk UI to render.
+
+    * `inputs.<element>.format`
+        * **Type:** String
+        * **Description:** The format of the input field depending on its type. For `select` inputs this is a comma-separated string of all the possible values to populate a drop-down box. This field can also be used to define the format to pre-fill an input in the `default` field, by using value providers (see more about value providers here: ).
+
+    * `inputs.<element>.default`
+        * **Type:** String
+        * **Description:** The default value for this input. For `select` inputs this is the default option that will be selected in the drop-down box. For inputs with a value provider substitution `format`, this field will hold it when the action is previewed in the context of a contact.
+
     * `inputs.<element>.mandatory`
         * **Type:** Boolean
         * **Description:** Talkdesk won't execute the action if no value is given for mandatory fields.
 
-Example:
+Examples:
 ```json
 {
   "provider": "zendesk",
@@ -187,11 +198,48 @@ Example:
     {
       "key": "subject",
       "name": "Ticket subject",
+      "type": "text",
       "mandatory": true
     },
     {
       "key": "description",
       "name": "Ticket description",
+      "type": "textarea",
+      "mandatory": true
+    },
+    {
+      "key": "requester_name",
+      "name": "Requester name",
+      "type": "text",
+      "format": "{{contact.name}}",
+      "mandatory": true
+    },
+    {
+      "key": "requester_email",
+      "name": "Requester email",
+      "type": "email",
+      "format": "{{contact.email}}",
+      "mandatory": true
+    }
+  ]
+}
+```
+
+```json
+{
+  "provider": "zendesk",
+  "name": "update_ticket",
+  "display": "update ticket",
+  "description": "update ticket in Zendesk",
+  "scoping": ['ticket'],
+  "endpoint": "",
+  "inputs": [
+    {
+      "key": "status",
+      "name": "Ticket status",
+      "type": "select",
+      "format": "new, open, pending, hold, solved, closed",
+      "default": "closed",
       "mandatory": true
     }
   ]
