@@ -33,17 +33,17 @@ The asynchronous nature of this API makes it possible to choose which features t
 
 Want to get started integrating with Talkdesk? Here's what you need to do:
 
-1. Read the docs on [how to configure an integration](integrations/configuration)
+1. Read the docs on [how to configure an integration](configuration)
 2. Send us a JSON with the configuration of your integration (for early bird access, email us at integrations@talkdesk.com)
 3. Build an HTTP web application, exposing one or more of the following endpoints:
 
     > The HTTP endpoints must be served through HTTPS  
     > The Integration API data format for requests/responses is JSON
 
-  * [Create an authorization validator](integrations/auth-validation)
-  * [Create a contact retriever](integrations/contact-synchronization)
-  * [Create an interaction retriever](integrations/interaction-update)
-  * [Create an action executor](integrations/action-execution)
+  * [Create an authorization validator](auth-validation)
+  * [Create a contact retriever](contact-synchronization)
+  * [Create an interaction retriever](interaction-update)
+  * [Create an action executor](action-execution)
 
 ### Help
 
