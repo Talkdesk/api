@@ -44,6 +44,7 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
   * [Create a contact retriever](contact-synchronization)
   * [Create an interaction retriever](interaction-update)
   * [Create an action executor](action-execution)
+  * [Create an agent retriever](agent-synchronization)
 
 ### Help
 
