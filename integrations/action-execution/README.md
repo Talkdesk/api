@@ -17,7 +17,9 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
     * `meta.contact_external_id`
         * **Type:** String, optional.
         * **Description:** For contacts that were previously synchronized through the bridge, if this action is executed in the scope of a contact, Talkdesk sends its id in the external service for direct identification.
-
+    * `meta.agent_external_id`
+        * **Type:** String, optional.
+        * **Description:** For agents that were previously synchronized through the bridge, this field will appear if the agent that executed the action is present in Talkdesk. 
 * `data`
     * **Type:** Hash
     * **Description:** A hash of data fields and respective values the bridge needs to execute the action in the external service. The keys correspond to the fields asked by the integration through the action configuration.
@@ -32,6 +34,7 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
     },
     "meta": {
         "contact_external_id": "1",
+        "agent_external_id": "2"
     },
     "data": {
         "subject": "Call missed in Talkdesk",
@@ -44,7 +47,8 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
 
 1. Use the "auth" fields to authenticate on behalf of the user within the external service. Talkdesk makes sure that all mandatory fields were filled as expected.
 
-2. Use contextual information passed as a meta field (such as the contact id in the external service) to correctly associate actions to the entities in the external service.
+2. Use contextual information passed as a meta field (such as the contact id in the external service) to correctly associate actions to the entities in the external service. Also,
+if possible assign the given agent to the executed action.
 
 3. Build a request based on the data parameters and send it to the external service.
 
