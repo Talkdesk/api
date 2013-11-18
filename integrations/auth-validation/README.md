@@ -28,4 +28,4 @@ information for the configured authorization fields. The bridge should validate 
 
 2. Build a request to the external service to validate the given credentials. This can be a dummy request just to make sure the credentials are valid. It can also be a more elaborate validation through an authorization endpoint provided by the external service.
 
-3. Return 204 if the request succeeds, 401 otherwise.
+3. Return 204 if the request succeeds, 401 otherwise. You can also send any authorization parameters (the keys must match the pre-configured ones in EI) from the bridge so that the EI can store it.
