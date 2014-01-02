@@ -109,7 +109,7 @@ Example:
   "display_name": "Zendesk",
   "description": "Centralize all your customer conversations so nothing gets ignored and everything is searchable   from one place. Easily organize, prioritize and engage with others on support requests.",
   "logo_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk.png",
-  "icon_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk_icon.png"
+  "icon_url": "https://talkdeskapp.s3.amazonaws.com/assets/integrations/zendesk_icon.png",
   "authentication_type": "custom",
   "authentication_configuration": [
     {
