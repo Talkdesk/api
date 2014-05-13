@@ -176,7 +176,7 @@ Example:
   "name": "create_ticket",
   "display": "create a ticket",
   "description": "create a new ticket in Zendesk",
-  "endpoint": "",
+  "endpoint": "https://td-zendesk.herokuapp.com/actions/create_ticket",
   "inputs": [
     {
       "key": "subject",
