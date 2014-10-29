@@ -56,7 +56,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 3. Make a request to the external service and convert the result to Talkdesk's contact format, as displayed in the response below.
 
-4. Set the `synchronization_checkpoint` to mark the last contact synchronized contact. Next time Talkdesk synchronizes contacts, it will send along this value, so that the bridge can only retrieve contacts that were updated after this checkpoint. Talkdesk is completely agnostic to the meaning of this field; bridges are responsible for selecting the best possible fit and interpreting it.
+4. Set the `synchronization_checkpoint` to mark the last synchronized contact. Next time Talkdesk synchronizes contacts, it will send along this value, so that the bridge can only retrieve contacts that were updated after this checkpoint. Talkdesk is completely agnostic to the meaning of this field; bridges are responsible for selecting the best possible fit and interpreting it.
 
 5. Set the `next_offset` field to the value of the next page of results when there are more contacts to retrieve. This will instruct Talkdesk's synchronizer that it needs to make another request to the bridge to retrieve the remaining contacts. As with `synchronization_checkpoint`, the system is agnostic to the meaning of this field; bridges can either return page numbers, absolute numerical offsets or some other form of result iteration.
 
@@ -72,7 +72,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 
 * `synchronization_checkpoint`
     * **Type:** String, optional.
-    * **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved everytime.
+    * **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved on every synchronization.
 
 * `contacts`
     * **Type:** Array
@@ -95,11 +95,11 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
         * **Description:** Contact's title within his company
 
     * `contacts.<element>.emails`
-        * **Type:** String, optional
+        * **Type:** Array, optional
         * **Description:** An array of Strings containing contact's emails
 
     * `contacts.<element>.phones`
-        * **Type:** String, optional
+        * **Type:** Array, optional
         * **Description:** An array of Strings containing contact's phone numbers
 
     * `contacts.<element>.photo_url`

@@ -89,11 +89,11 @@ An integration configuration has to provide a JSON configuration based on the fo
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible of validating if the given credentials authorize the user.
 
-* `contact_synchronization_url`
+* `contact_synchronization_endpoint`
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible for contact synchronization. If nil, contact synchronization features will not be available for the integration.
 
-* `interaction_retrieval_url`
+* `interaction_retrieval_endpoint`
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible for interaction retrieval. If nil, interaction retrieval features will not be available for the integration.
 
