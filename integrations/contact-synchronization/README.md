@@ -118,6 +118,10 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
         * **Type:** String, optional
         * **Description:** Contact's Twitter username
 
+    * `contacts.<element>.url`
+        * **Type:** String, optional
+        * **Description:** URL location for the contact
+
 ### Example
 
 ```json
@@ -135,7 +139,8 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
             "company":     "Example Corp.",
             "address":     "37, Famous St., New York, US",
             "websites":    ["www.example.com"],
-            "twitter":     "jane_doe"
+            "twitter":     "jane_doe",
+            "url":         "http://example.com/users/1/"
         },
         {
             "id":          "2",
