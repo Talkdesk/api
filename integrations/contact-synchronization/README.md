@@ -28,6 +28,10 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
         * **Type:** String, optional.
         * **Description:** A generic offset the bridge should apply when retrieving paginated contacts. Can either return page numbers, absolute numerical offsets or some other form of result iteration. This parameter is omitted in the first call and is only sent if the bridge instructs the synchronizer that there are more records available.
 
+    * `meta.context`
+        * **Type:** Value, optional.
+        * **Description:** A generic field that the bridge can use to keep transitional state between each paginated contacts fetch request. Can be any acceptable JSON value. This parameter is omitted on the first call and is only sent if the bridge both returns a value and instructs the synchronizer that there are more records available.
+
 ### Example
 
 ```json
@@ -38,7 +42,8 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
     },
     "meta": {
         "offset": "2",
-        "synchronization_checkpoint": "2012-11-20 23:01:00 UTC"
+        "synchronization_checkpoint": "2012-11-20 23:01:00 UTC",
+        "context": null
     }
 }
 ```
@@ -73,6 +78,10 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 * `synchronization_checkpoint`
     * **Type:** String, optional.
     * **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved on every synchronization.
+
+* `context`
+    * **Type:** Value, optional.
+    * **Description:** Optional internal state to be sent in the next synchronizer request, if `next_offset` is set.
 
 * `contacts`
     * **Type:** Array
@@ -128,6 +137,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
 {
     "next_offset": "3",
     "synchronization_checkpoint": "2012-12-01 11:21:00 UTC",
+    "context": null,
     "contacts": [
         {
             "id":          "1",
