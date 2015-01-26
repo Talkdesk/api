@@ -97,6 +97,10 @@ An integration configuration has to provide a JSON configuration based on the fo
     * **Type:** String, optional.
     * **Description:** The URL of the integration bridge responsible for interaction retrieval. If nil, interaction retrieval features will not be available for the integration.
 
+* `agent_synchronization_endpoint`
+    * **Type:** String, optional.
+    * **Description:** The URL of the integration bridge responsible for agent synchronization. If nil, agent synchronization features will not be available for the integration.
+
 * `interaction_types`
     * **Type:** Array, optional
     * **Description:** An array of Strings that identify which types of interactions this integration can retrieve. Each account will configure a subset of these types it is interested in.
@@ -125,6 +129,7 @@ Example:
   "auth_validation_endpoint": "https://td-zendesk.herokuapp.com/auth_validation",
   "contact_synchronization_endpoint": "https://td-zendesk.herokuapp.com/contact_sync",
   "interaction_retrieval_endpoint": "https://td-zendesk.herokuapp.com/interaction_update",
+  "agent_synchronization_endpoint": "https://td-zendesk.herokuapp.com/agent_sync",
   "interaction_types": ["ticket"]
 }
 ```
