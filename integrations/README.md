@@ -38,7 +38,8 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
 3. Build an HTTP web application, exposing one or more of the following endpoints:
 
     > The HTTP endpoints must be served through HTTPS  
-    > The Integration API data format for requests/responses is JSON
+    > The Integration API data format for requests/responses is JSON    
+    > The responses header 'Content-type' field must be set to 'application/json'
 
   * [Create an authorization validator](auth-validation)
   * [Create a contact retriever](contact-synchronization)
@@ -46,6 +47,6 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
   * [Create an action executor](action-execution)
   * [Create an agent retriever](agent-synchronization)
 
-### Help
+### Assistance
 
-Remember to use [our chat room](http://www.hipchat.com/gyjJEVCEE) if you have any questions.
+Feel free to **chat** with our **Engineering team** at [our hipchat chat room](http://www.hipchat.com/gyjJEVCEE) for questions or just to hang out :smile:.
