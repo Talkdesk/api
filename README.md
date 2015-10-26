@@ -6,7 +6,7 @@ The Talkdesk APIs are a way for you to connect and "sync" other applications (cu
 
 ## Help
 
-If you have questions that are related to the API chat with someone from tech support by acessing [our chat room](http://www.hipchat.com/gyjJEVCEE).
+If you have questions that are related to the API chat with someone from tech support by accessing [support@talkdesk.com](mailto: support@talkdesk.com).
 
 ## Help Us Make it Better
 
