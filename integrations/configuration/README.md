@@ -47,41 +47,41 @@ An integration configuration has to provide a JSON configuration based on the fo
 
 * `authentication_type`
     * **Type:** String, `none`, `custom` or `oauth2`.
-    * **Description:** The type of authentication to use. If `none` or `oauth2` are set, `authentication_fields` is unnecessary. For `custom`, authentication fields must be set.
+    * **Description:** The type of authentication to use. If `none` or `oauth2` are set, `authentication_configuration` is unnecessary. For `custom`, authentication fields must be set.
 
-* `authentication_fields`
+* `authentication_configuration`
     * **Type:** Array, optional when `authentication_type` is set to `none` or `oauth2`, mandatory for `custom`.
     * **Description:** A hash of authentication fields required for the external integration's authentication process. When requests are made to the external integration's bridge, the value to send for these fields is retrieved from the user account.
 
-    * `authentication_fields.<element>`
+    * `authentication_configuration.<element>`
         * **Type:** String, unique within the element.
         * **Description:** The name of the field to send.
 
-    * `authentication_fields.<elements>.source`
+    * `authentication_configuration.<elements>.source`
         * **Type:** String, `input`, `default` or `auth_validation`.
         * **Description:** The source of this field.
 
-    * `authentication_fields.<elements>.display`
+    * `authentication_configuration.<elements>.display`
         * **Type:** String, mandatory.
         * **Description:** Display friendly name when presenting the input on the interface.
 
-    * `authentication_fields.<elements>.mandatory`
+    * `authentication_configuration.<elements>.mandatory`
         * **Type:** Boolean, mandatory.
         * **Description:** Talkdesk will only validate mandatory fields.
 
-    * `authentication_fields.<elements>.type`
+    * `authentication_configuration.<elements>.type`
         * **Type:** String, `input` or `oauth`.
         * **Description:** Instruct Talkdesk on how to obtain the field: `input` for user provided fields, `oauth` for fields provided by the OAuth 2.0 authority.
 
-    * `authentication_fields.<elements>.store`
+    * `authentication_configuration.<elements>.store`
         * **Type:** Boolean, mandatory.
         * **Description:** Controls if the field is to be stored in the configuration. A use case for this is combining type `oauth` with store `false` for field 'code' when requiring Talkdesk to retrieve an oauth code.
 
-    * `authentication_fields.<elements>.help`
+    * `authentication_configuration.<elements>.help`
         * **Type:** String, optional.
         * **Description:** Hint to display along with the field, on the interface.
 
-    * `authentication_fields.<elements>.format`
+    * `authentication_configuration.<elements>.format`
         * **Type:** String, optional.
         * **Description:** Template to gather user input, allows a friendlier display on the interface (e.g. `http://talkdesk.com/{{username}}`)
 
