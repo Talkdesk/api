@@ -46,7 +46,3 @@ Want to get started integrating with Talkdesk? Here's what you need to do:
   * [Create an interaction retriever](interaction-update)
   * [Create an action executor](action-execution)
   * [Create an agent retriever](agent-synchronization)
-
-### Assistance
-
-Feel free to **chat** with our **Engineering team** at [our hipchat chat room](http://www.hipchat.com/gyjJEVCEE) for questions or just to hang out :smile:.
