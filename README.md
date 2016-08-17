@@ -4,6 +4,8 @@ The Talkdesk APIs are a way for you to connect and "sync" other applications (cu
 
 [Integrations API](https://github.com/Talkdesk/api/tree/master/integrations)
 
+[Reporting API](/reporting-api)
+
 ## Help
 
 If you have questions that are related to the API chat with someone from tech support by accessing [support@talkdesk.com](mailto: support@talkdesk.com).
