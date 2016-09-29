@@ -40,10 +40,12 @@ An integration configuration has to provide a JSON configuration based on the fo
 * `logo_url`
     * **Type:** String, mandatory
     * **Description:** The URL location of the integration service logo to be displayed when configuring the integration.
+    The logo image should have a size that not exceeds `192x96` pixels.
 
 * `icon_url`
     * **Type:** String, mandatory
     * **Description:** The URL location of the integration service icon to be displayed for retrieved interactions within a contact.
+    The icon image should have a size that not exceeds `96x96` pixels.
 
 * `authentication_type`
     * **Type:** String, `none`, `custom` or `oauth2`.
