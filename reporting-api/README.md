@@ -27,18 +27,21 @@ There are several ways to make this request, and they vary based on the type of 
 
 Issue the following `POST` request to `/auth/token`:
 
+Headers:
 ``` http
-POST /auth/token
 Content-Type: application/json
+```
 
-  {
-    "client_id": "${client_id}",
-    "client_secret": "${client_secret}",
-    "client_version": "${client_version}",
-    "account": "${account}",
-    "username": "${username}",
-    "password": "${password}"
-  }
+Request body:
+``` http
+{
+  "client_id": "INSERT_CLIENT_ID_HERE",
+  "client_secret": "INSERT_CLIENT_SECRET_HERE",
+  "client_version": "INSERT_CLIENT_VERSION_HERE",
+  "account": "INSERT_ACCOUNT_NAME_HERE",
+  "username": "INSERT_USERNAME_HERE",
+  "password": "INSERT_PASSWORD_HERE"
+}
 ```
 
 A successful response containing an access token is returned. All timestamps will be returned in UTC.
@@ -67,15 +70,19 @@ Please note that the recommended approach to refresh tokens is to reactively han
 
 Issue the following `POST` request to `/auth/access`:
 
-``` http
-POST /auth/access
-Content-Type: application/json
 
+Headers:
+```http
+Content-Type: application/json
+```
+
+Request body
+``` http
 {
-  "client_id": "${client_id}",
-  "client_secret": "${client_secret}",
-  "client_version": "${client_version}",
-  "id_token": "${id_token}"
+  "client_id": "INSERT_CLIENT_ID_HERE",
+  "client_secret": "INSERT_CLIENT_SECRET_HERE",
+  "client_version": "INSERT_CLIENT_VERSION_HERE",
+  "id_token": "INSERT_ID_TOKEN_HERE"
 }
 ```
 
@@ -102,8 +109,7 @@ A successful response containing a new `access_token` is returned. The `id_token
 After obtaining an access token, your application can use it to make calls to Talkdesk API resources on behalf of a given user by including it as an authorization bearer header.
 
 ``` http
-GET /
-Authorization: Bearer {access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 Asynchronous API
@@ -125,11 +131,14 @@ A format can be specified (`json`, `csv` or `xls` are supported) as well as a ti
 
 Issue an authenticated `POST` request to `/reports/calls/jobs`:
 
+Headers:
 ``` http
-POST /reports/calls/jobs
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 Content-Type: application/json
+```
 
+Request body:
+```http
 {
   "format": "${format}",
   "timespan": {
@@ -168,9 +177,9 @@ Until a report job is in progress, it is possible to cancel it using a `DELETE` 
 
 Issue an authenticated `GET` request to `/reports/calls/jobs/{id}`
 
+Headers:
 ``` http
-GET /reports/calls/jobs/${id}
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 A successful `200 Ok` response containing the current report job status will be returned.
@@ -196,11 +205,19 @@ A successful `200 Ok` response containing the current report job status will be 
 
 Once the report is generated, this endpoint will return a `303 See Other` status code, redirecting to the report download location. Please note that its body still returning the updated job status.
 
-``` json
+Response status code:
+``` http
 HTTP/1.1 303 See Other
+```
+
+Response headers:
+``` http
 Content-Type: application/json
 Location: https://api.talkdeskdev.com/reports/calls/files/57add63204c799583700028e
+```
 
+Response body:
+``` json
 {
 	"id": "57add63204c799583700028e",
 	"status": "done",
@@ -225,9 +242,9 @@ A generated report can be downloaded several times after generation by using its
 
 Issue an authenticated `GET` request to `/reports/calls/files/(id}`:
 
+Headers:
 ``` http
-GET /reports/calls/files/${id}
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 A `302 Redirect` response to an S3 link is returned. If your HTTP client automatically follows redirects, the report will start downloading. Otherwise, issue a `GET` request to the signed S3 URL specified in the `Location` header to download.
@@ -330,9 +347,9 @@ After a report has been generated, its corresponding file can be deleted using i
 
 Issue an authenticated `DELETE` request to `/reports/calls/files/{id}`:
 
+Headers:
 ``` http
-DELETE /reports/calls/files/${id}
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 A successful no content reponse will be returned:
@@ -367,8 +384,7 @@ While a report is not yet generated, it is possible to cancel its creation by de
 Issue an authenticated `DELETE` request to `/reports/calls/jobs/{id}`
 
 ``` http
-DELETE /reports/calls/jobs/${id}
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 If the reports is not yet created, a successful no content response will be returned.
@@ -402,11 +418,10 @@ It is also possible to inspect the recent history of report generation jobs by u
 
 Optionally, pagination and sorting can be specified using `page`, `per_page`, `order` and `order_by` as query parameters.
 
-Issue an authenticated `GET` request to `/reports/calls/jobs`
+Issue an authenticated `GET` request to `/reports/calls/jobs?per_page=3`
 
 ``` http
-GET /reports/calls/jobs?per_page=${per_page}
-Authorization: Bearer ${access_token}
+Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
 A paginated list of the recent executions ordered from the most recent ones is returned:
