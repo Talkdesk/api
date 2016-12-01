@@ -21,7 +21,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
     * **Description:** A hash of meta fields containing accessory information that is useful for the bridge to fulfil this request.
 
     * `meta.synchronization_checkpoint`
-        * **Type:** String, optional.
+        * **Type:** String, mandatory.
         * **Description:** A generic starting point for the next synchronization with the 3rd party service. For initial synchronizations, this value will not be sent — which effectively means that the bridge should return all the contacts.
 
     * `meta.offset`
@@ -76,7 +76,7 @@ Talkdesk will send an HTTP POST to the bridge's configured endpoint when a conta
     * **Description:** Value for next page offset, if there are more records that match the query.
 
 * `synchronization_checkpoint`
-    * **Type:** String, optional.
+    * **Type:** String, mandatory.
     * **Description:** Synchronization checkpoint for this batch of results, resulting in an incremental request next time Talkdesk contact synchronization runs. If not set, all contacts from the external service will be retrieved on every synchronization.
 
 * `context`
