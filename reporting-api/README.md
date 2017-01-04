@@ -267,6 +267,7 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "talk_time": 10,
       "wait_time": 2,
       "hold_time": 0,
+      "abandon_time": 0,
       "agent_speed_to_answer_time": 2,
       "disposition_code": "Not Interested",
       "notes": null,
@@ -279,7 +280,10 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "is_transfer": false,
       "handling_agent_name": null,
       "handling_agent_email": null,
-      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJlNGFiZTk3OWIwMDAzMDAwMDFi"
+      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJlNGFiZTk3OWIwMDAzMDAwMDFi",
+      "is_external_transfer": false,
+      "is_if_no_answer": false,
+      "is_call_forwarding": false
     },
     {
       "callsid": "CA45fa4b69fbd2fcac9c6f134231d606bd",
@@ -295,6 +299,7 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "talk_time": 40,
       "wait_time": 5,
       "hold_time": 5,
+      "abandon_time": 0,
       "agent_speed_to_answer_time": 4,
       "disposition_code": "Not Interested",
       "notes": null,
@@ -307,7 +312,10 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "is_transfer": false,
       "handling_agent_name": null,
       "handling_agent_email": null,
-      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJkYTViZTk3OWIwMDAzMDAwMDE5"
+      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJkYTViZTk3OWIwMDAzMDAwMDE5",
+      "is_external_transfer": false,
+      "is_if_no_answer": false,
+      "is_call_forwarding": false
     },
     {
       "callsid": "CAbdc4e1549c50f11563addcde695c2303",
@@ -323,6 +331,7 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "talk_time": 1,
       "wait_time": 0,
       "hold_time": 0,
+      "abandon_time": 0,
       "agent_speed_to_answer_time": 3,
       "disposition_code": "Not Interested",
       "notes": null,
@@ -335,7 +344,10 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
       "is_transfer": false,
       "handling_agent_name": null,
       "handling_agent_email": null,
-      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJkODBiZTk3OWIwMDAzMDAwMDE4"
+      "recording_url": "https://recordings.talkdeskapp.com/calls/RENTc5YjJkODBiZTk3OWIwMDAzMDAwMDE4",
+      "is_external_transfer": false,
+      "is_if_no_answer": false,
+      "is_call_forwarding": false
     }
   ]
 }
