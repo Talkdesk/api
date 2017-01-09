@@ -123,6 +123,13 @@ The following steps allow the report job creation and further retrival of result
 2.  `GET /reports/calls/jobs/{id}` to check on the report status. When the report is created this request will be automatically redirected to download the file.
 3.  `GET /reports/calls/files/{id}` to download the report once it has been generated.
 
+### Report Types
+
+The report types available for generation in the Reporting API are the following:
+
+- calls
+- user_status
+
 ### Creating a report job
 
 The API currently supports generation of calls reports.
