@@ -127,7 +127,7 @@ The following steps allow the report job creation and further retrival of result
 
 The API currently supports generation of calls reports.
 
-A format can be specified (`json`, `csv` or `xls` are supported) as well as a timespan specifying the date interval that this report will include.
+A format can be specified (`json` and `csv` are supported) as well as a timespan specifying the date interval that this report will include.
 
 Issue an authenticated `POST` request to `/reports/calls/jobs`:
 
@@ -288,8 +288,8 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
     {
       "callsid": "CAa2c55bd75a3352f4244933b92942bf70",
       "type": "short_abandoned",
-      "start_at": "2016-02-29 10:22:02",
-      "end_at": "2016-02-29 10:22:14",
+      "start_at": "2016-02-29 11:45:05",
+      "end_at": "2016-02-29 11:45:08",
       "talkdesk_phone_number": "+18443265295",
       "talkdesk_phone_display_name": "support",
       "contact_phone_number": "+17207081229",
@@ -320,8 +320,8 @@ A `302 Redirect` response to an S3 link is returned. If your HTTP client automat
     {
       "callsid": "CA730a06a24e9ba8c55a4e793ba4f4e751",
       "type": "inbound",
-      "start_at": "2016-03-29 10:22:02",
-      "end_at": "2016-03-29 10:22:14",
+      "start_at": "2016-03-30 09:22:02",
+      "end_at": "2016-03-30 10:35:02",
       "talkdesk_phone_number": "+18443265295",
       "talkdesk_phone_display_name": "support",
       "contact_phone_number": "+17207081229",
