@@ -1,6 +1,28 @@
 Reporting API Documentation
 ===========================
 
+
+Table of Contents
+----
+
+- [Reporting API Documentation](#reporting-api-documentation)
+  * [Intro](#intro)
+  * [Authentication](#authentication)
+    + [Requesting client credentials](#requesting-client-credentials)
+    + [Obtaining an access token](#obtaining-an-access-token)
+    + [Refreshing an access token](#refreshing-an-access-token)
+    + [Calling Talkdesk APIs with an access token](#calling-talkdesk-apis-with-an-access-token)
+  * [Asynchronous API](#asynchronous-api)
+    + [Report Types](#report-types)
+    + [Creating a report job](#creating-a-report-job)
+    + [Checking a report job status](#checking-a-report-job-status)
+    + [Downloading a report file](#downloading-a-report-file)
+    + [Delete a report file](#delete-a-report-file)
+    + [Canceling a report job](#canceling-a-report-job)
+    + [Inspecting previous report jobs](#inspecting-previous-report-jobs)
+  * [Error responses and rate limits](#error-responses-and-rate-limits)
+  * [Help and Support](#help-and-support)
+
 Intro
 -----
 
