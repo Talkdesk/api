@@ -10,7 +10,7 @@ All methods must be called using HTTPS, using a mix of `GET`, `POST` and `DELETE
 
 The reponse format is `application/json`. Additional hypermedia metadata may be provided in the responses in a format compatible with `JSON+HAL`, which can be used to extract links to related resources (including pagination) without the need to build URLs.
 
-The API described in this guide is specified using Swagger's Open API format and reference documentation for it can be found at: <http://api-docs.talkdesk.org:8002/swagger/?url=http://api-docs.talkdesk.org:8002/api-docs#!/Reports/get_reports_type_files_id>
+The API described in this guide is specified using Swagger's Open API format and reference documentation for it can be found at: <http://api-docs.talkdesk.org/redoc>
 
 Authentication
 --------------
