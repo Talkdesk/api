@@ -129,6 +129,8 @@ The API currently supports generation of calls reports.
 
 A format can be specified (`json` and `csv` are supported) as well as a timespan specifying the date interval that this report will include.
 
+**Important:** Report generation is subject to a data availability policy where only data is made available with a 1 hour delay. Therefore, when specifying the `timespan` field the `to` date should be at least one our in the past (if a request is issued at 12pm, the param should be at most 11am).
+
 Issue an authenticated `POST` request to `/reports/calls/jobs`:
 
 Headers:
