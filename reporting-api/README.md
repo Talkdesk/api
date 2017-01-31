@@ -438,60 +438,62 @@ Issue an authenticated `GET` request to `/reports/calls/jobs?per_page=3`
 Authorization: Bearer "INSERT_ACCESS_TOKEN_HERE"
 ```
 
-A paginated list of the recent executions ordered from the most recent ones is returned:
+A paginated list of the recent jobs ordered from the most recent ones is returned:
 
 ``` json
 {
-  "executions": [
-    {
-      "id": "57a07d18108e4282ae0000d6",
-      "status": "canceled",
-      "timespan": {
-        "from": "2010-01-01 22:13:12 UTC",
-        "to": "2016-05-01 22:13:12 UTC"
-      },
-      "_links": {
-        "self": {
-          "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a07d18108e4282ae0000d6"
+  "_embedded": {
+    "jobs": [
+      {
+        "id": "57a07d18108e4282ae0000d6",
+        "status": "canceled",
+        "timespan": {
+          "from": "2010-01-01 22:13:12 UTC",
+          "to": "2016-05-01 22:13:12 UTC"
         },
-        "files": {
-          "href": "https://api.talkdeskdev.com/reports/calls/files/57a07d18108e4282ae0000d6"
+        "_links": {
+          "self": {
+            "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a07d18108e4282ae0000d6"
+          },
+          "files": {
+            "href": "https://api.talkdeskdev.com/reports/calls/files/57a07d18108e4282ae0000d6"
+          }
+        }
+      },
+      {
+        "id": "57a07c5a108e4248c30000bd",
+        "status": "canceled",
+        "timespan": {
+          "from": "2010-01-01 22:13:12 UTC",
+          "to": "2016-05-01 22:13:12 UTC"
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a07c5a108e4248c30000bd"
+          },
+          "files": {
+            "href": "https://api.talkdeskdev.com/reports/calls/files/57a07c5a108e4248c30000bd"
+          }
+        }
+      },
+      {
+        "id": "57a4d60ed3188a8bbc0004a2",
+        "status": "canceled",
+        "timespan": {
+          "from": "2010-04-29 00:00:00 UTC",
+          "to": "2016-07-29 00:00:00 UTC"
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a4d60ed3188a8bbc0004a2"
+          },
+          "files": {
+            "href": "https://api.talkdeskdev.com/reports/calls/files/57a4d60ed3188a8bbc0004a2"
+          }
         }
       }
-    },
-    {
-      "id": "57a07c5a108e4248c30000bd",
-      "status": "canceled",
-      "timespan": {
-        "from": "2010-01-01 22:13:12 UTC",
-        "to": "2016-05-01 22:13:12 UTC"
-      },
-      "_links": {
-        "self": {
-          "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a07c5a108e4248c30000bd"
-        },
-        "files": {
-          "href": "https://api.talkdeskdev.com/reports/calls/files/57a07c5a108e4248c30000bd"
-        }
-      }
-    },
-    {
-      "id": "57a4d60ed3188a8bbc0004a2",
-      "status": "canceled",
-      "timespan": {
-        "from": "2010-04-29 00:00:00 UTC",
-        "to": "2016-07-29 00:00:00 UTC"
-      },
-      "_links": {
-        "self": {
-          "href": "https://api.talkdeskdev.com/reports/calls/jobs/57a4d60ed3188a8bbc0004a2"
-        },
-        "files": {
-          "href": "https://api.talkdeskdev.com/reports/calls/files/57a4d60ed3188a8bbc0004a2"
-        }
-      }
-    }
-  ],
+    ]
+  },
   "total": 41,
   "page": 1,
   "per_page": 3,
