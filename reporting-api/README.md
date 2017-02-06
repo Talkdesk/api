@@ -1,6 +1,28 @@
 Reporting API Documentation
 ===========================
 
+
+Table of Contents
+----
+
+- [Reporting API Documentation](#reporting-api-documentation)
+  * [Intro](#intro)
+  * [Authentication](#authentication)
+    + [Requesting client credentials](#requesting-client-credentials)
+    + [Obtaining an access token](#obtaining-an-access-token)
+    + [Refreshing an access token](#refreshing-an-access-token)
+    + [Calling Talkdesk APIs with an access token](#calling-talkdesk-apis-with-an-access-token)
+  * [Asynchronous API](#asynchronous-api)
+    + [Report Types](#report-types)
+    + [Creating a report job](#creating-a-report-job)
+    + [Checking a report job status](#checking-a-report-job-status)
+    + [Downloading a report file](#downloading-a-report-file)
+    + [Delete a report file](#delete-a-report-file)
+    + [Canceling a report job](#canceling-a-report-job)
+    + [Inspecting previous report jobs](#inspecting-previous-report-jobs)
+  * [Error responses and rate limits](#error-responses-and-rate-limits)
+  * [Help and Support](#help-and-support)
+
 Intro
 -----
 
@@ -122,6 +144,13 @@ The following steps allow the report job creation and further retrival of result
 1.  `POST /reports/calls/jobs` to trigger a new report generation. A job status resource will be returned.
 2.  `GET /reports/calls/jobs/{id}` to check on the report status. When the report is created this request will be automatically redirected to download the file.
 3.  `GET /reports/calls/files/{id}` to download the report once it has been generated.
+
+### Report Types
+
+The report types available for generation in the Reporting API are the following:
+
+- calls
+- user_status
 
 ### Creating a report job
 
