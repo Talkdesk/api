@@ -19,7 +19,7 @@ Talkdesk will execute a configured action on the bridge when a trigger of an aut
         * **Description:** For contacts that were previously synchronized through the bridge, if this action is executed in the scope of a contact, Talkdesk sends its id in the external service for direct identification.
     * `meta.agent_external_id`
         * **Type:** String, optional.
-        * **Description:** For agents that were previously synchronized through the bridge, this field will appear if the agent that executed the action is present in Talkdesk. 
+        * **Description:** For agents that were previously synchronized through the bridge, this field will appear if the agent that executed the action is present in Talkdesk.
 * `data`
     * **Type:** Hash
     * **Description:** A hash of data fields and respective values the bridge needs to execute the action in the external service. The keys correspond to the fields asked by the integration through the action configuration.
@@ -53,3 +53,23 @@ if possible assign the given agent to the executed action.
 3. Build a request based on the data parameters and send it to the external service.
 
 4. Return a 201 HTTP status code if it succeeds, 400 otherwise.
+
+## Response
+
+### Reference
+* `message`
+  * **Type:** String, optional
+  * **Description:** A generic message describing the execution result. Ex: `Case successfully created`, `Case creation failed, reason:`.
+* `external_id`
+  * **Type:** String, optional
+  * **Description:** For actions that create a resource in the external service (other than contact). `external_id` represents the resource `id`
+  in the external service.
+* `contact_external_id`
+  * **Type:** String, optional
+  * **Description:** For actions that create a contact in the external service. `contact_external_id` represents contact `id` in the external service.
+* `contact_external_type`
+  * **Type:** String, optional
+  * **Description:** For actions that create a contact in the external service. `contact_external_type` represents contact `type` of in the external service.
+* `contact_external_url`
+  * **Type:** String, optional
+  * **Description:** For actions that create a contact in the external service. `contact_external_url` represents contact `url` in the external service. **NOTE:** Required for contact pop.
