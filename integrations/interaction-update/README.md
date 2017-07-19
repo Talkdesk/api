@@ -1,3 +1,5 @@
+**This documentation is no longer up to date - please refer to our current documentation at [https://docs.talkdesk.com/docs/integrations](https://docs.talkdesk.com/docs/integrations).**
+
 # Implementing an Interaction Retriever
 
 Talkdesk's interaction updater will send an HTTP POST request to the bridge in order to retrieve a contact's interactions with the external service whenever that contact is being displayed to a user. It passes along the following parameters:

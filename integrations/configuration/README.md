@@ -1,3 +1,5 @@
+**This documentation is no longer up to date - please refer to our current documentation at [https://docs.talkdesk.com/docs/integrations](https://docs.talkdesk.com/docs/integrations).**
+
 # Configuring a Talkdesk Integration
 
 Talkdesk has to know a few things about your new integration: what it is called, what kind of authentication mechanism it needs, where it lives and which feature set it provides.

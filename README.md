@@ -6,10 +6,10 @@ The Talkdesk APIs are a way for you to connect and "sync" other applications (cu
 
 ## Help
 
-If you have questions that are related to the API chat with someone from tech support by accessing [support@talkdesk.com](mailto: support@talkdesk.com).
+If you have questions that are related to the API chat with someone from tech support by accessing [support@talkdesk.com](mailto:support@talkdesk.com).
 
 ## Help Us Make it Better
 
-Please tell us how we can make Talkdesk APIs better. If you have a specific feature request or if you found a bug, please email us at [support@talkdesk.com](mailto: support@talkdesk.com).
+Please tell us how we can make Talkdesk APIs better. If you have a specific feature request or if you found a bug, please email us at [support@talkdesk.com](mailto:support@talkdesk.com).
 
 Feel free to fork these docs and send a pull request with improvements!
