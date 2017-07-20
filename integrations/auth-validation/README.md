@@ -1,3 +1,5 @@
+**This documentation is no longer up to date - please refer to our current documentation at [https://docs.talkdesk.com/docs/integrations](https://docs.talkdesk.com/docs/integrations).**
+
 # Implementing an Authorization Validator
 
 When a user activates an integration for their Talkdesk account, a POST will be made to the configured endpoint with the user's

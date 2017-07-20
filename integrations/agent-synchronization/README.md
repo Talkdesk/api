@@ -1,3 +1,5 @@
+**This documentation is no longer up to date - please refer to our current documentation at [https://docs.talkdesk.com/docs/integrations](https://docs.talkdesk.com/docs/integrations).**
+
 ## Implementing an Agent Retriever
 
 Talkdesk will send an HTTP POST to the bridge's endpoint when an agent synchronization is needed. The request is as follows:

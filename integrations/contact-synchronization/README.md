@@ -1,3 +1,5 @@
+**This documentation is no longer up to date - please refer to our current documentation at [https://docs.talkdesk.com/docs/integrations](https://docs.talkdesk.com/docs/integrations).**
+
 # Implementing a Contact Retriever
 
 Talkdesk will send an HTTP POST to the bridge's configured endpoint when a contact synchronization is run. This request can be slightly different depending on the situation for which it is running:
